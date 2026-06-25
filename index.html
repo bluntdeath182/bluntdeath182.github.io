@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alam Kurnia | Digital Profile</title>
+<title>Cyberpunk Profile | Alam Kurnia</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-    --primary:#00e5ff;
-    --secondary:#8b5cf6;
-    --dark:#050816;
-    --card:#0f172a;
+    --bg:#050816;
+    --cyan:#00f7ff;
+    --pink:#ff00ff;
+    --purple:#8b5cf6;
     --text:#ffffff;
 }
 
@@ -24,73 +24,136 @@
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    background:var(--dark);
+    background:var(--bg);
     color:var(--text);
+    font-family:'Rajdhani',sans-serif;
     overflow-x:hidden;
 }
 
-/* Background Animation */
-body::before{
-    content:"";
+/* =========================
+   CYBERPUNK BACKGROUND
+========================= */
+
+.cyber-bg{
     position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(0,229,255,.15), transparent 30%),
-    radial-gradient(circle at 80% 80%, rgba(139,92,246,.15), transparent 30%);
-    z-index:-1;
+    inset:0;
+    overflow:hidden;
+    z-index:-10;
 }
+
+.grid{
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+        linear-gradient(rgba(0,247,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,247,255,.08) 1px, transparent 1px);
+    background-size:50px 50px;
+    transform:perspective(1000px) rotateX(75deg);
+    animation:gridMove 15s linear infinite;
+}
+
+@keyframes gridMove{
+    from{
+        transform:perspective(1000px) rotateX(75deg) translateY(0);
+    }
+    to{
+        transform:perspective(1000px) rotateX(75deg) translateY(50px);
+    }
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+}
+
+.glow:nth-child(2){
+    width:400px;
+    height:400px;
+    background:#00f7ff;
+    left:-100px;
+    top:10%;
+    opacity:.2;
+}
+
+.glow:nth-child(3){
+    width:450px;
+    height:450px;
+    background:#ff00ff;
+    right:-100px;
+    top:20%;
+    opacity:.2;
+}
+
+.glow:nth-child(4){
+    width:350px;
+    height:350px;
+    background:#8b5cf6;
+    bottom:-50px;
+    left:40%;
+    opacity:.15;
+}
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
     width:90%;
     max-width:1200px;
     margin:auto;
+    padding:50px 0;
 }
 
-/* HERO */
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+/* =========================
+   PROFILE CARD
+========================= */
 
 .profile-card{
-    width:100%;
-    background:rgba(255,255,255,0.04);
+    background:rgba(255,255,255,.05);
     backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,.1);
     border-radius:25px;
     padding:40px;
     box-shadow:
-    0 0 30px rgba(0,229,255,.15),
-    0 0 60px rgba(139,92,246,.15);
+        0 0 25px rgba(0,247,255,.2),
+        0 0 60px rgba(255,0,255,.15);
 }
 
-.profile-top{
+.header{
     display:flex;
-    gap:40px;
     flex-wrap:wrap;
     align-items:center;
+    gap:40px;
 }
 
 .avatar{
     width:220px;
     height:220px;
     border-radius:50%;
-    overflow:hidden;
-    border:3px solid var(--primary);
-    box-shadow:
-    0 0 20px var(--primary),
-    0 0 50px var(--primary);
+    padding:4px;
+    background:linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--pink)
+    );
+    animation:pulse 3s infinite;
 }
 
 .avatar img{
     width:100%;
     height:100%;
+    border-radius:50%;
     object-fit:cover;
+}
+
+@keyframes pulse{
+    50%{
+        box-shadow:
+            0 0 30px var(--cyan),
+            0 0 60px var(--pink);
+    }
 }
 
 .info{
@@ -100,36 +163,83 @@ body::before{
 .info h1{
     font-family:'Orbitron',sans-serif;
     font-size:3rem;
-    margin-bottom:10px;
-    color:var(--primary);
-    text-shadow:0 0 15px var(--primary);
+    color:var(--cyan);
+    text-shadow:0 0 15px var(--cyan);
 }
 
-.info h3{
+.subtitle{
     color:#cbd5e1;
-    font-weight:400;
-    margin-bottom:20px;
+    margin-top:10px;
+    font-size:1.2rem;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 18px;
-    border-radius:30px;
-    border:1px solid var(--primary);
-    color:var(--primary);
-    margin-right:10px;
-    margin-bottom:10px;
+.status{
+    margin-top:15px;
+    color:#00ff95;
 }
 
-.description{
+.bio{
     margin-top:20px;
     line-height:1.8;
-    color:#dbeafe;
+    max-width:700px;
 }
 
-/* GRID */
+/* =========================
+   BUTTONS
+========================= */
 
-.grid{
+.actions{
+    margin-top:25px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.btn{
+    text-decoration:none;
+    color:white;
+    padding:12px 24px;
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        var(--cyan),
+        var(--pink)
+    );
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.stat{
+    background:rgba(255,255,255,.04);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat h2{
+    color:var(--cyan);
+    font-size:2rem;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
     margin-top:40px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -137,8 +247,7 @@ body::before{
 }
 
 .card{
-    background:rgba(255,255,255,0.03);
-    border:1px solid rgba(255,255,255,0.08);
+    background:rgba(255,255,255,.04);
     border-radius:20px;
     padding:25px;
     transition:.3s;
@@ -146,12 +255,12 @@ body::before{
 
 .card:hover{
     transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,229,255,.3);
+    box-shadow:0 0 25px rgba(0,247,255,.25);
 }
 
 .card h2{
-    color:var(--primary);
-    margin-bottom:20px;
+    margin-bottom:15px;
+    color:var(--cyan);
     font-family:'Orbitron',sans-serif;
 }
 
@@ -160,109 +269,104 @@ body::before{
 }
 
 .card li{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
-
-/* SOCIAL */
 
 .socials{
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
+    gap:10px;
 }
 
 .social{
     text-decoration:none;
     color:white;
-    padding:12px 20px;
-    border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
+    border:1px solid rgba(0,247,255,.3);
+    padding:10px 15px;
+    border-radius:10px;
     transition:.3s;
 }
 
 .social:hover{
-    transform:scale(1.08);
+    background:var(--cyan);
+    color:black;
 }
 
-/* STATS */
+/* =========================
+   FOOTER
+========================= */
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+footer{
+    text-align:center;
     margin-top:40px;
-}
-
-.stat{
-    text-align:center;
-    padding:20px;
-    background:rgba(255,255,255,.03);
-    border-radius:15px;
-}
-
-.stat h2{
-    color:var(--primary);
-    font-size:2rem;
-}
-
-.footer{
-    text-align:center;
-    padding:40px 20px;
     color:#94a3b8;
 }
 
 @media(max-width:768px){
 
-    .info h1{
-        font-size:2rem;
-    }
-
-    .profile-top{
+    .header{
         justify-content:center;
         text-align:center;
     }
 
-    .stats{
-        grid-template-columns:1fr;
+    .info h1{
+        font-size:2rem;
+    }
+
+    .profile-card{
+        padding:25px;
+    }
+
+    .actions{
+        justify-content:center;
     }
 }
 
 </style>
 </head>
+
 <body>
+
+<div class="cyber-bg">
+    <div class="grid"></div>
+    <div class="glow"></div>
+    <div class="glow"></div>
+    <div class="glow"></div>
+</div>
 
 <div class="container">
 
-<section class="hero">
-
 <div class="profile-card">
 
-<div class="profile-top">
+<div class="header">
 
 <div class="avatar">
-<img src="https://via.placeholder.com/400" alt="Profile">
+<img src="https://via.placeholder.com/500" alt="Profile">
 </div>
 
 <div class="info">
 
 <h1>ALAM KURNIA</h1>
 
-<h3>Digital Creator • Web Developer • Tech Enthusiast</h3>
+<div class="subtitle">
+WEB DEVELOPER • DIGITAL CREATOR • TECH ENTHUSIAST
+</div>
 
-<span class="badge">Future Tech</span>
-<span class="badge">Innovation</span>
-<span class="badge">Creative</span>
+<div class="status">
+● ONLINE | CONNECTED TO CYBER NETWORK
+</div>
 
-<p class="description">
-Selamat datang di profil digital saya.
-Saya memiliki minat dalam teknologi, pengembangan web,
-desain modern, dan inovasi digital. Saya senang membangun
-pengalaman digital yang menarik, interaktif, dan futuristik.
+<p class="bio">
+Selamat datang di profil cyberpunk saya.
+Saya memiliki minat pada teknologi masa depan,
+pengembangan web modern, AI, keamanan siber,
+otomasi digital, desain futuristik, dan inovasi teknologi.
 </p>
+
+<div class="actions">
+<a href="#" class="btn">Hubungi Saya</a>
+<a href="#" class="btn">Portfolio</a>
+</div>
 
 </div>
 
@@ -271,32 +375,37 @@ pengalaman digital yang menarik, interaktif, dan futuristik.
 <div class="stats">
 
 <div class="stat">
+<h2>100+</h2>
+<p>Project</p>
+</div>
+
+<div class="stat">
+<h2>50+</h2>
+<p>Client</p>
+</div>
+
+<div class="stat">
 <h2>5+</h2>
 <p>Tahun Pengalaman</p>
 </div>
 
 <div class="stat">
-<h2>100+</h2>
-<p>Project Selesai</p>
-</div>
-
-<div class="stat">
 <h2>24/7</h2>
-<p>Learning Mode</p>
+<p>Innovation</p>
 </div>
 
 </div>
 
-<div class="grid">
+<div class="cards">
 
 <div class="card">
 <h2>👤 Profil</h2>
 <ul>
-<li><b>Nama:</b> Alam Kurnia</li>
-<li><b>Lokasi:</b> Indonesia</li>
-<li><b>Email:</b> alam@email.com</li>
-<li><b>WhatsApp:</b> +62 8xx xxxx xxxx</li>
-<li><b>Website:</b> www.domainanda.com</li>
+<li>Nama : Alam Kurnia</li>
+<li>Lokasi : Indonesia</li>
+<li>Email : alam@email.com</li>
+<li>WhatsApp : +62xxxxxxxxxx</li>
+<li>Website : domainanda.com</li>
 </ul>
 </div>
 
@@ -305,10 +414,10 @@ pengalaman digital yang menarik, interaktif, dan futuristik.
 <ul>
 <li>HTML5 & CSS3</li>
 <li>JavaScript</li>
-<li>UI/UX Design</li>
-<li>Web Development</li>
-<li>Digital Branding</li>
-<li>Content Creation</li>
+<li>UI / UX Design</li>
+<li>Artificial Intelligence</li>
+<li>Cyber Security</li>
+<li>Cloud Computing</li>
 </ul>
 </div>
 
@@ -316,17 +425,12 @@ pengalaman digital yang menarik, interaktif, dan futuristik.
 <h2>🌐 Social Media</h2>
 
 <div class="socials">
-
 <a href="#" class="social">Instagram</a>
-
 <a href="#" class="social">TikTok</a>
-
 <a href="#" class="social">Facebook</a>
-
 <a href="#" class="social">YouTube</a>
-
+<a href="#" class="social">GitHub</a>
 <a href="#" class="social">LinkedIn</a>
-
 </div>
 
 </div>
@@ -335,11 +439,11 @@ pengalaman digital yang menarik, interaktif, dan futuristik.
 <h2>🎯 Minat</h2>
 <ul>
 <li>Artificial Intelligence</li>
-<li>Cyber Technology</li>
-<li>Photography</li>
+<li>Cyberpunk Design</li>
 <li>Boxing & Fitness</li>
-<li>Startup Business</li>
-<li>Digital Innovation</li>
+<li>Photography</li>
+<li>Startup Technology</li>
+<li>Future Innovation</li>
 </ul>
 </div>
 
@@ -347,10 +451,8 @@ pengalaman digital yang menarik, interaktif, dan futuristik.
 
 </div>
 
-</section>
-
-<footer class="footer">
-© 2026 ALAM KURNIA • FUTURE DIGITAL PROFILE
+<footer>
+© 2026 | CYBERPUNK DIGITAL PROFILE
 </footer>
 
 </div>
