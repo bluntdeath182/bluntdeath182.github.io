@@ -1,461 +1,65 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyberpunk Profile | Alam Kurnia</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --bg:#050816;
-    --black:#00f7ff;
-    --grey:#ff00ff;
-    --white:#8b5cf6;
-    --text:#ffffff;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Rajdhani',sans-serif;
-    overflow-x:hidden;
-}
-
-/* =========================
-   CYBERPUNK BACKGROUND
-========================= */
-
-.cyber-bg{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    z-index:-10;
-}
-
-.grid{
-    position:absolute;
-    width:200%;
-    height:200%;
-    background:
-        linear-gradient(rgba(0,247,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,247,255,.08) 1px, transparent 1px);
-    background-size:50px 50px;
-    transform:perspective(1000px) rotateX(75deg);
-    animation:gridMove 15s linear infinite;
-}
-
-@keyframes gridMove{
-    from{
-        transform:perspective(1000px) rotateX(75deg) translateY(0);
-    }
-    to{
-        transform:perspective(1000px) rotateX(75deg) translateY(50px);
-    }
-}
-
-.glow{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(120px);
-}
-
-.glow:nth-child(2){
-    width:400px;
-    height:400px;
-    background:#00f7ff;
-    left:-100px;
-    top:10%;
-    opacity:.2;
-}
-
-.glow:nth-child(3){
-    width:450px;
-    height:450px;
-    background:#ff00ff;
-    right:-100px;
-    top:20%;
-    opacity:.2;
-}
-
-.glow:nth-child(4){
-    width:350px;
-    height:350px;
-    background:#8b5cf6;
-    bottom:-50px;
-    left:40%;
-    opacity:.15;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:50px 0;
-}
-
-/* =========================
-   PROFILE CARD
-========================= */
-
-.profile-card{
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:25px;
-    padding:40px;
-    box-shadow:
-        0 0 25px rgba(0,247,255,.2),
-        0 0 60px rgba(255,0,255,.15);
-}
-
-.header{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:40px;
-}
-
-.avatar{
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    padding:4px;
-    background:linear-gradient(
-        135deg,
-        var(--cyan),
-        var(--pink)
-    );
-    animation:pulse 3s infinite;
-}
-
-.avatar img{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-@keyframes pulse{
-    50%{
-        box-shadow:
-            0 0 30px var(--cyan),
-            0 0 60px var(--pink);
-    }
-}
-
-.info{
-    flex:1;
-}
-
-.info h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:3rem;
-    color:var(--cyan);
-    text-shadow:0 0 15px var(--cyan);
-}
-
-.subtitle{
-    color:#cbd5e1;
-    margin-top:10px;
-    font-size:1.2rem;
-}
-
-.status{
-    margin-top:15px;
-    color:#00ff95;
-}
-
-.bio{
-    margin-top:20px;
-    line-height:1.8;
-    max-width:700px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.actions{
-    margin-top:25px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-}
-
-.btn{
-    text-decoration:none;
-    color:white;
-    padding:12px 24px;
-    border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        var(--cyan),
-        var(--pink)
-    );
-    transition:.3s;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
-
-.stat{
-    background:rgba(255,255,255,.04);
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-}
-
-.stat h2{
-    color:var(--cyan);
-    font-size:2rem;
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.cards{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:rgba(255,255,255,.04);
-    border-radius:20px;
-    padding:25px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,247,255,.25);
-}
-
-.card h2{
-    margin-bottom:15px;
-    color:var(--cyan);
-    font-family:'Orbitron',sans-serif;
-}
-
-.card ul{
-    list-style:none;
-}
-
-.card li{
-    margin-bottom:10px;
-}
-
-.socials{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.social{
-    text-decoration:none;
-    color:white;
-    border:1px solid rgba(0,247,255,.3);
-    padding:10px 15px;
-    border-radius:10px;
-    transition:.3s;
-}
-
-.social:hover{
-    background:var(--cyan);
-    color:black;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    text-align:center;
-    margin-top:40px;
-    color:#94a3b8;
-}
-
-@media(max-width:768px){
-
-    .header{
-        justify-content:center;
-        text-align:center;
-    }
-
-    .info h1{
-        font-size:2rem;
-    }
-
-    .profile-card{
-        padding:25px;
-    }
-
-    .actions{
-        justify-content:center;
-    }
-}
-
-</style>
-</head>
-
 <body>
 
-<div class="cyber-bg">
-    <div class="grid"></div>
-    <div class="glow"></div>
-    <div class="glow"></div>
-    <div class="glow"></div>
+<canvas id="matrix"></canvas>
+
+<div id="boot-screen">
+  <h1>INITIALIZING CYBER SYSTEM...</h1>
 </div>
 
-<div class="container">
+<header class="hud-header">
+  <div class="logo">ALAM KURNIA</div>
+  <div class="status">SYSTEM ONLINE</div>
+</header>
 
-<div class="profile-card">
+<section class="hero">
 
-<div class="header">
+  <div class="avatar-container">
 
-<div class="avatar">
-<img src="https://via.placeholder.com/500" alt="Profile">
-</div>
+    <div class="hologram-ring"></div>
 
-<div class="info">
+    <img src="avatar.jpg" class="avatar">
 
-<h1>ALAM KURNIA</h1>
+  </div>
 
-<div class="subtitle">
-WEB DEVELOPER • DIGITAL CREATOR • TECH ENTHUSIAST
-</div>
+  <div class="content">
 
-<div class="status">
-● ONLINE | CONNECTED TO CYBER NETWORK
-</div>
+    <h1>ALAM KURNIA</h1>
 
-<p class="bio">
-Selamat datang di profil cyberpunk saya.
-Saya memiliki minat pada teknologi masa depan,
-pengembangan web modern, AI, keamanan siber,
-otomasi digital, desain futuristik, dan inovasi teknologi.
-</p>
+    <div id="typing"></div>
 
-<div class="actions">
-<a href="#" class="btn">Hubungi Saya</a>
-<a href="#" class="btn">Portfolio</a>
-</div>
+    <p>
+      Web Developer • Digital Creator • AI Enthusiast
+    </p>
 
-</div>
+  </div>
 
-</div>
+</section>
 
-<div class="stats">
+<section class="cards">
 
-<div class="stat">
-<h2>100+</h2>
-<p>Project</p>
-</div>
+  <div class="card">
+      Profil
+  </div>
 
-<div class="stat">
-<h2>50+</h2>
-<p>Client</p>
-</div>
+  <div class="card">
+      Keahlian
+  </div>
 
-<div class="stat">
-<h2>5+</h2>
-<p>Tahun Pengalaman</p>
-</div>
+  <div class="card">
+      Social Media
+  </div>
 
-<div class="stat">
-<h2>24/7</h2>
-<p>Innovation</p>
-</div>
+</section>
 
-</div>
+<audio id="music" loop>
+    <source src="synthwave.mp3">
+</audio>
 
-<div class="cards">
+<button id="musicToggle">
+    MUSIC ON/OFF
+</button>
 
-<div class="card">
-<h2>👤 Profil</h2>
-<ul>
-<li>Nama : Alam Kurnia</li>
-<li>Lokasi : Indonesia</li>
-<li>Email : alam@email.com</li>
-<li>WhatsApp : +62xxxxxxxxxx</li>
-<li>Website : domainanda.com</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🚀 Keahlian</h2>
-<ul>
-<li>HTML5 & CSS3</li>
-<li>JavaScript</li>
-<li>UI / UX Design</li>
-<li>Artificial Intelligence</li>
-<li>Cyber Security</li>
-<li>Cloud Computing</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🌐 Social Media</h2>
-
-<div class="socials">
-<a href="#" class="social">Instagram</a>
-<a href="#" class="social">TikTok</a>
-<a href="#" class="social">Facebook</a>
-<a href="#" class="social">YouTube</a>
-<a href="#" class="social">GitHub</a>
-<a href="#" class="social">LinkedIn</a>
-</div>
-
-</div>
-
-<div class="card">
-<h2>🎯 Minat</h2>
-<ul>
-<li>Artificial Intelligence</li>
-<li>Cyberpunk Design</li>
-<li>Boxing & Fitness</li>
-<li>Photography</li>
-<li>Startup Technology</li>
-<li>Future Innovation</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-<footer>
-© 2026 | CYBERPUNK DIGITAL PROFILE
-</footer>
-
-</div>
+<script src="matrix.js"></script>
+<script src="typing.js"></script>
 
 </body>
-</html>
