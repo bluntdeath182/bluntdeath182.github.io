@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Saya</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    color:#fff;
+    padding:30px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.profile-card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.hero{
+    padding:50px 30px;
+    text-align:center;
+    background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+}
+
+.profile-img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:.9;
+    font-size:1.1rem;
+}
+
+.content{
+    padding:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border-radius:18px;
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,0.08);
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#60a5fa;
+}
+
+.info-list{
+    list-style:none;
+}
+
+.info-list li{
+    margin-bottom:12px;
+}
+
+.socials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.social-btn{
+    text-decoration:none;
+    color:white;
+    padding:12px 18px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    transition:.3s;
+}
+
+.social-btn:hover{
+    transform:scale(1.05);
+}
+
+.about{
+    margin-top:30px;
+}
+
+.about p{
+    line-height:1.8;
+    opacity:.9;
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    opacity:.7;
+}
+
+@media(max-width:768px){
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .content{
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="profile-card">
+
+        <div class="hero">
+            <img src="https://via.placeholder.com/170" alt="Foto Profil" class="profile-img">
+
+            <h1>ALAM KURNIA</h1>
+
+            <p>Web Developer • Designer • Content Creator</p>
+        </div>
+
+        <div class="content">
+
+            <div class="grid">
+
+                <div class="card">
+                    <h2>👤 Informasi Pribadi</h2>
+
+                    <ul class="info-list">
+                        <li><strong>Nama:</strong> Alam Kurnia</li>
+                        <li><strong>Lokasi:</strong> Indonesia</li>
+                        <li><strong>Email:</strong> alam@email.com</li>
+                        <li><strong>Telepon:</strong> +62 xxx xxxx xxxx</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>🚀 Keahlian</h2>
+
+                    <ul class="info-list">
+                        <li>HTML, CSS, JavaScript</li>
+                        <li>UI/UX Design</li>
+                        <li>Web Development</li>
+                        <li>Digital Marketing</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>📱 Social Media</h2>
+
+                    <div class="socials">
+                        <a href="#" class="social-btn">Instagram</a>
+                        <a href="#" class="social-btn">Facebook</a>
+                        <a href="#" class="social-btn">TikTok</a>
+                        <a href="#" class="social-btn">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🎯 Hobi</h2>
+
+                    <ul class="info-list">
+                        <li>Olahraga</li>
+                        <li>Fotografi</li>
+                        <li>Teknologi</li>
+                        <li>Traveling</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="card about">
+                <h2>📝 Tentang Saya</h2>
+
+                <p>
+                    Halo! Saya adalah seorang profesional yang memiliki minat
+                    dalam pengembangan web, desain antarmuka, dan teknologi
+                    digital. Saya senang mempelajari hal-hal baru, membangun
+                    solusi kreatif, serta berbagi pengalaman melalui berbagai
+                    platform digital. Halaman ini berisi informasi singkat
+                    mengenai profil, keahlian, dan media sosial saya.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 - Dibuat dengan ❤️ oleh Alam Kurnia
+    </div>
+
+</div>
+
+</body>
+</html>
