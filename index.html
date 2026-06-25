@@ -63,3 +63,168 @@
 <script src="typing.js"></script>
 
 </body>
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters =
+'アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+const fontSize = 16;
+
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for(let i=0;i<columns;i++){
+    drops[i]=1;
+}
+
+function draw(){
+
+    ctx.fillStyle='rgba(0,0,0,0.05)';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle='#00ffff';
+    ctx.font=fontSize+'px monospace';
+
+    for(let i=0;i<drops.length;i++){
+
+        const text=
+        letters[Math.floor(Math.random()*letters.length)];
+
+        ctx.fillText(
+            text,
+            i*fontSize,
+            drops[i]*fontSize
+        );
+
+        if(
+            drops[i]*fontSize>canvas.height &&
+            Math.random()>0.975
+        ){
+            drops[i]=0;
+        }
+
+        drops[i]++;
+    }
+
+}
+
+setInterval(draw,35);
+      const text =
+[
+ "WEB DEVELOPER",
+ "AI ENTHUSIAST",
+ "CYBER SECURITY",
+ "DIGITAL CREATOR"
+];
+
+let i=0;
+let j=0;
+let current='';
+
+function type(){
+
+    current=text[i];
+
+    document.getElementById('typing')
+    .innerHTML=
+    current.substring(0,j);
+
+    j++;
+
+    if(j>current.length){
+
+        j=0;
+        i++;
+
+        if(i>=text.length){
+            i=0;
+        }
+    }
+
+}
+
+setInterval(type,120);
+      .avatar-container{
+
+    position:relative;
+    width:280px;
+    height:280px;
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.avatar{
+
+    width:100%;
+    border-radius:50%;
+
+    filter:
+    drop-shadow(0 0 25px cyan);
+
+}
+
+.hologram-ring{
+
+    position:absolute;
+    inset:-20px;
+
+    border:2px solid cyan;
+    border-radius:50%;
+
+    animation:
+    spin 8s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes float{
+
+    50%{
+        transform:
+        translateY(-15px);
+    }
+
+}
+      :root{
+
+--cyan:#00ffff;
+--pink:#ff00ff;
+--yellow:#ffd500;
+--dark:#050816;
+
+}
+      .card{
+
+backdrop-filter:blur(20px);
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(0,255,255,.3);
+
+box-shadow:
+0 0 20px rgba(0,255,255,.2);
+
+clip-path:polygon(
+10px 0,
+100% 0,
+100% calc(100% - 10px),
+calc(100% - 10px) 100%,
+0 100%,
+0 10px
+);
+
+}
