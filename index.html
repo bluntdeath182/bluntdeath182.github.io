@@ -5,281 +5,363 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profil Saya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#050816;
-    color:#fff;
-    font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
-}
 
-/* Background */
+    background: linear-gradient(-45deg,
+    #ff006e,
+    #8338ec,
+    #3a86ff,
+    #06d6a0,
+    #ffbe0b);
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle at top,#00f7ff22,transparent 45%),
-    radial-gradient(circle at bottom,#8a2be233,transparent 45%),
-    linear-gradient(#050816,#02040d);
-    z-index:-2;
-}
+    background-size:400% 400%;
+    animation:gradient 15s ease infinite;
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size:40px 40px;
-    z-index:-1;
-}
-
-/* Container */
-
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-    padding:50px 0;
-}
-
-/* Hero */
-
-.hero{
-    display:flex;
-    gap:40px;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
     min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
 }
 
-.photo{
-    width:280px;
-    height:280px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#00eaff,#6f00ff);
-    padding:5px;
-    box-shadow:0 0 40px #00eaff;
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-    background:#111;
-}
-
-.info{
-    flex:1;
-}
-
-h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:58px;
-    color:#00f7ff;
-    text-shadow:0 0 20px cyan;
-}
-
-h2{
-    color:#8dc8ff;
-    margin-top:10px;
-    font-weight:400;
-}
-
-.desc{
-    margin-top:25px;
-    line-height:1.8;
-    color:#d8d8d8;
-}
-
-/* Card */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    margin-top:60px;
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .card{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(0,255,255,.2);
-    backdrop-filter:blur(12px);
-    padding:25px;
-    border-radius:18px;
-    transition:.4s;
+
+width:100%;
+max-width:950px;
+
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+
+border-radius:30px;
+
+padding:40px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+color:white;
+
+display:grid;
+grid-template-columns:320px 1fr;
+gap:40px;
+
+animation:fade 1s ease;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px cyan;
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
-.card h3{
-    color:#00f7ff;
-    margin-bottom:15px;
-    font-family:'Orbitron';
+.left{
+text-align:center;
 }
 
-/* Skill */
+.profile{
 
-.skill{
-    margin:15px 0;
-}
+width:220px;
+height:220px;
 
-.bar{
-    width:100%;
-    height:8px;
-    background:#222;
-    border-radius:20px;
-    overflow:hidden;
-}
+border-radius:50%;
 
-.fill{
-    height:100%;
-    background:linear-gradient(90deg,#00f7ff,#8a2be2);
-}
+border:8px solid white;
 
-/* Button */
+object-fit:cover;
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    text-decoration:none;
-    color:white;
-    border:2px solid cyan;
-    border-radius:50px;
-    transition:.3s;
-}
+box-shadow:0 0 30px rgba(255,255,255,.5);
 
-.btn:hover{
-    background:cyan;
-    color:#000;
-    box-shadow:0 0 30px cyan;
-}
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#888;
-}
-
-@media(max-width:768px){
-
-.hero{
-    justify-content:center;
-    text-align:center;
+margin-bottom:20px;
 }
 
 h1{
-    font-size:40px;
+font-size:34px;
 }
 
-.photo{
-    width:220px;
-    height:220px;
+.job{
+font-size:18px;
+opacity:.9;
+margin-bottom:15px;
+}
+
+.bio{
+
+line-height:1.8;
+font-size:15px;
+
+margin-top:20px;
+}
+
+.social{
+margin-top:30px;
+}
+
+.social a{
+
+display:inline-block;
+
+text-decoration:none;
+
+color:white;
+
+font-size:26px;
+
+margin:10px;
+
+transition:.3s;
+}
+
+.social a:hover{
+transform:scale(1.3);
+}
+
+.right h2{
+
+margin-bottom:20px;
+
+font-size:28px;
+}
+
+.info{
+
+display:grid;
+grid-template-columns:150px 1fr;
+
+margin-bottom:15px;
+
+font-size:16px;
+}
+
+.info strong{
+color:#ffe600;
+}
+
+.skill{
+
+margin-top:25px;
+}
+
+.skill-name{
+
+display:flex;
+justify-content:space-between;
+
+margin-bottom:6px;
+}
+
+.bar{
+
+height:15px;
+
+background:rgba(255,255,255,.25);
+
+border-radius:20px;
+
+overflow:hidden;
+
+margin-bottom:18px;
+}
+
+.fill{
+
+height:100%;
+border-radius:20px;
+}
+
+.html{width:95%;background:#ff3d3d;}
+.css{width:90%;background:#00e5ff;}
+.js{width:80%;background:#ffee00;}
+.php{width:75%;background:#9b5cff;}
+
+.btn{
+
+margin-top:30px;
+
+display:inline-block;
+
+padding:15px 35px;
+
+background:white;
+
+color:#5f00ff;
+
+font-weight:bold;
+
+border-radius:50px;
+
+text-decoration:none;
+
+transition:.3s;
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+@media(max-width:800px){
+
+.card{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.info{
+
+grid-template-columns:1fr;
+
+gap:5px;
 }
 
 }
+
 </style>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
+
 <body>
 
-<div class="container">
+<div class="card">
 
-<section class="hero">
+<div class="left">
 
-<div class="photo">
-<img src="https://via.placeholder.com/500" alt="Foto Profil">
-</div>
-
-<div class="info">
+<img src="https://i.pravatar.cc/300" class="profile">
 
 <h1>ALAM KURNIA</h1>
 
-<h2>Web Developer • UI Designer • Tech Enthusiast</h2>
+<div class="job">
+Web Developer • UI Designer
+</div>
 
-<p class="desc">
-Selamat datang di halaman profil saya.
-Saya memiliki ketertarikan dalam pengembangan website modern,
-desain antarmuka futuristik, serta teknologi terbaru.
-Saya senang menciptakan pengalaman digital yang elegan,
-cepat, dan interaktif.
+<p class="bio">
+
+Halo! Saya adalah seorang pengembang web yang menyukai teknologi, desain modern, dan pengembangan aplikasi berbasis web. Saya senang belajar hal-hal baru serta menciptakan tampilan website yang menarik dan interaktif.
+
 </p>
 
-<a href="#" class="btn">Hubungi Saya</a>
+<div class="social">
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+
+<a href="#"><i class="fab fa-instagram"></i></a>
+
+<a href="#"><i class="fab fa-github"></i></a>
+
+<a href="#"><i class="fab fa-linkedin"></i></a>
 
 </div>
 
-</section>
-
-<div class="grid">
-
-<div class="card">
-<h3>Tentang Saya</h3>
-<p>
-Berorientasi pada inovasi, selalu belajar teknologi baru,
-serta menyukai desain minimalis dengan nuansa cyberpunk.
-</p>
 </div>
 
-<div class="card">
-<h3>Keahlian</h3>
+<div class="right">
+
+<h2>Informasi Profil</h2>
+
+<div class="info">
+<strong>Nama</strong>
+<div>Alam Kurnia</div>
+</div>
+
+<div class="info">
+<strong>Umur</strong>
+<div>25 Tahun</div>
+</div>
+
+<div class="info">
+<strong>Alamat</strong>
+<div>Indonesia</div>
+</div>
+
+<div class="info">
+<strong>Email</strong>
+<div>emailanda@example.com</div>
+</div>
+
+<div class="info">
+<strong>Telepon</strong>
+<div>+62 xxx xxxx xxxx</div>
+</div>
+
+<div class="info">
+<strong>Hobi</strong>
+<div>Coding, Gaming, Desain, Traveling</div>
+</div>
+
+<h2 style="margin-top:35px;">Keahlian</h2>
 
 <div class="skill">
-HTML
+
+<div class="skill-name">
+<span>HTML</span>
+<span>95%</span>
+</div>
+
 <div class="bar">
-<div class="fill" style="width:95%"></div>
-</div>
+<div class="fill html"></div>
 </div>
 
-<div class="skill">
-CSS
+<div class="skill-name">
+<span>CSS</span>
+<span>90%</span>
+</div>
+
 <div class="bar">
-<div class="fill" style="width:90%"></div>
-</div>
+<div class="fill css"></div>
 </div>
 
-<div class="skill">
-JavaScript
+<div class="skill-name">
+<span>JavaScript</span>
+<span>80%</span>
+</div>
+
 <div class="bar">
-<div class="fill" style="width:85%"></div>
-</div>
-</div>
-
+<div class="fill js"></div>
 </div>
 
-<div class="card">
-<h3>Kontak</h3>
+<div class="skill-name">
+<span>PHP</span>
+<span>75%</span>
+</div>
 
-<p>📧 email@example.com</p>
-<br>
-<p>📱 +62 812-3456-7890</p>
-<br>
-<p>🌐 www.websiteanda.com</p>
+<div class="bar">
+<div class="fill php"></div>
+</div>
+
+<a href="#" class="btn">
+Hubungi Saya
+</a>
 
 </div>
 
 </div>
-
-<footer>
-© 2026 • Futuristic Profile • Designed with HTML & CSS
-</footer>
 
 </div>
 
