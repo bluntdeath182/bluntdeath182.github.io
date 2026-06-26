@@ -3,21 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profil Digital | Alam Kurnia</title>
+<title>Profil Saya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-    --primary:#00e5ff;
-    --secondary:#8b5cf6;
-    --accent:#00ff88;
-    --bg:#0a0f1f;
-    --card:rgba(255,255,255,.06);
-    --text:#ffffff;
-}
-
 *{
     margin:0;
     padding:0;
@@ -25,271 +15,196 @@
 }
 
 body{
+    background:#050816;
+    color:#fff;
     font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--text);
     overflow-x:hidden;
 }
 
-/* Background Futuristik */
+/* Background */
 
-.bg{
+body::before{
+    content:"";
     position:fixed;
     inset:0;
-    z-index:-1;
-    overflow:hidden;
+    background:
+    radial-gradient(circle at top,#00f7ff22,transparent 45%),
+    radial-gradient(circle at bottom,#8a2be233,transparent 45%),
+    linear-gradient(#050816,#02040d);
+    z-index:-2;
 }
 
-.bg::before,
-.bg::after{
+body::after{
     content:"";
-    position:absolute;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    filter:blur(120px);
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
 }
 
-.bg::before{
-    background:#00e5ff;
-    left:-150px;
-    top:-100px;
-    opacity:.15;
-}
-
-.bg::after{
-    background:#8b5cf6;
-    right:-150px;
-    bottom:-100px;
-    opacity:.15;
-}
+/* Container */
 
 .container{
     width:90%;
-    max-width:1200px;
+    max-width:1100px;
     margin:auto;
+    padding:50px 0;
 }
 
 /* Hero */
 
 .hero{
-    min-height:100vh;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:50px 0;
-}
-
-.profile-card{
-    width:100%;
-    background:var(--card);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:30px;
-    padding:40px;
-    box-shadow:0 0 30px rgba(0,229,255,.15);
-}
-
-.profile-top{
-    display:flex;
-    flex-wrap:wrap;
     gap:40px;
     align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    min-height:100vh;
 }
 
-.avatar{
-    width:220px;
-    height:220px;
+.photo{
+    width:280px;
+    height:280px;
     border-radius:50%;
-    overflow:hidden;
-    border:4px solid var(--primary);
-    box-shadow:
-        0 0 20px var(--primary),
-        0 0 40px rgba(0,229,255,.5);
+    background:linear-gradient(135deg,#00eaff,#6f00ff);
+    padding:5px;
+    box-shadow:0 0 40px #00eaff;
 }
 
-.avatar img{
+.photo img{
     width:100%;
     height:100%;
     object-fit:cover;
+    border-radius:50%;
+    background:#111;
 }
 
 .info{
     flex:1;
 }
 
-.info h1{
+h1{
     font-family:'Orbitron',sans-serif;
-    font-size:3rem;
-    color:var(--primary);
+    font-size:58px;
+    color:#00f7ff;
+    text-shadow:0 0 20px cyan;
 }
 
-.info h3{
-    color:#cbd5e1;
-    margin:10px 0;
+h2{
+    color:#8dc8ff;
+    margin-top:10px;
     font-weight:400;
 }
 
-.badges{
+.desc{
+    margin-top:25px;
+    line-height:1.8;
+    color:#d8d8d8;
+}
+
+/* Card */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:60px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(0,255,255,.2);
+    backdrop-filter:blur(12px);
+    padding:25px;
+    border-radius:18px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px cyan;
+}
+
+.card h3{
+    color:#00f7ff;
+    margin-bottom:15px;
+    font-family:'Orbitron';
+}
+
+/* Skill */
+
+.skill{
     margin:15px 0;
 }
 
-.badge{
-    display:inline-block;
-    padding:8px 15px;
-    border-radius:50px;
-    border:1px solid var(--primary);
-    margin-right:10px;
-    margin-bottom:10px;
+.bar{
+    width:100%;
+    height:8px;
+    background:#222;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.bio{
-    line-height:1.8;
-    max-width:700px;
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,#00f7ff,#8a2be2);
 }
 
-.buttons{
-    margin-top:25px;
-}
+/* Button */
 
 .btn{
     display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
     text-decoration:none;
     color:white;
-    padding:12px 24px;
-    border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-    margin-right:10px;
+    border:2px solid cyan;
+    border-radius:50px;
     transition:.3s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-}
-
-/* Statistik */
-
-.stats{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
-
-.stat{
-    background:rgba(255,255,255,.04);
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-}
-
-.stat h2{
-    color:var(--primary);
-    font-size:2rem;
-}
-
-/* Cards */
-
-.cards{
-    margin-top:40px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:rgba(255,255,255,.04);
-    padding:25px;
-    border-radius:20px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 25px rgba(0,229,255,.2);
-}
-
-.card h2{
-    margin-bottom:15px;
-    color:var(--primary);
-    font-family:'Orbitron',sans-serif;
-}
-
-.card ul{
-    list-style:none;
-}
-
-.card li{
-    margin-bottom:10px;
-}
-
-/* Social */
-
-.socials{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.social{
-    text-decoration:none;
-    color:white;
-    padding:10px 15px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(255,255,255,.05);
-    transition:.3s;
-}
-
-.social:hover{
-    background:var(--primary);
+    background:cyan;
     color:#000;
+    box-shadow:0 0 30px cyan;
 }
-
-/* Footer */
 
 footer{
     text-align:center;
     padding:40px;
-    color:#94a3b8;
+    color:#888;
 }
 
 @media(max-width:768px){
 
-    .profile-top{
-        justify-content:center;
-        text-align:center;
-    }
-
-    .info h1{
-        font-size:2rem;
-    }
-
-    .profile-card{
-        padding:25px;
-    }
+.hero{
+    justify-content:center;
+    text-align:center;
 }
 
+h1{
+    font-size:40px;
+}
+
+.photo{
+    width:220px;
+    height:220px;
+}
+
+}
 </style>
+
 </head>
-
 <body>
-
-<div class="bg"></div>
 
 <div class="container">
 
 <section class="hero">
 
-<div class="profile-card">
-
-<div class="profile-top">
-
-<div class="avatar">
+<div class="photo">
 <img src="https://via.placeholder.com/500" alt="Foto Profil">
 </div>
 
@@ -297,113 +212,73 @@ footer{
 
 <h1>ALAM KURNIA</h1>
 
-<h3>Web Developer • Digital Creator • Technology Enthusiast</h3>
+<h2>Web Developer • UI Designer • Tech Enthusiast</h2>
 
-<div class="badges">
-<span class="badge">🚀 Innovator</span>
-<span class="badge">💻 Developer</span>
-<span class="badge">⚡ Creative Thinker</span>
-</div>
-
-<p class="bio">
-Halo, saya Alam Kurnia. Saya memiliki minat dalam
-pengembangan web, teknologi digital, desain modern,
-otomasi, dan inovasi masa depan. Saya senang menciptakan
-pengalaman digital yang menarik, cepat, dan bermanfaat.
+<p class="desc">
+Selamat datang di halaman profil saya.
+Saya memiliki ketertarikan dalam pengembangan website modern,
+desain antarmuka futuristik, serta teknologi terbaru.
+Saya senang menciptakan pengalaman digital yang elegan,
+cepat, dan interaktif.
 </p>
 
-<div class="buttons">
 <a href="#" class="btn">Hubungi Saya</a>
-<a href="#" class="btn">Portfolio</a>
-</div>
-
-</div>
-
-</div>
-
-<div class="stats">
-
-<div class="stat">
-<h2>100+</h2>
-<p>Project</p>
-</div>
-
-<div class="stat">
-<h2>50+</h2>
-<p>Klien</p>
-</div>
-
-<div class="stat">
-<h2>5+</h2>
-<p>Tahun Pengalaman</p>
-</div>
-
-<div class="stat">
-<h2>24/7</h2>
-<p>Learning</p>
-</div>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h2>👤 Informasi</h2>
-<ul>
-<li>Nama : Alam Kurnia</li>
-<li>Lokasi : Indonesia</li>
-<li>Email : alam@email.com</li>
-<li>WhatsApp : +62xxxxxxxxxx</li>
-<li>Website : www.domainanda.com</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🚀 Keahlian</h2>
-<ul>
-<li>HTML5 & CSS3</li>
-<li>JavaScript</li>
-<li>UI/UX Design</li>
-<li>Web Development</li>
-<li>AI Tools</li>
-<li>Digital Branding</li>
-</ul>
-</div>
-
-<div class="card">
-<h2>🌐 Social Media</h2>
-
-<div class="socials">
-<a href="#" class="social">Instagram</a>
-<a href="#" class="social">TikTok</a>
-<a href="#" class="social">Facebook</a>
-<a href="#" class="social">YouTube</a>
-<a href="#" class="social">LinkedIn</a>
-<a href="#" class="social">GitHub</a>
-</div>
-
-</div>
-
-<div class="card">
-<h2>🎯 Minat</h2>
-<ul>
-<li>Artificial Intelligence</li>
-<li>Cyber Security</li>
-<li>Photography</li>
-<li>Boxing & Fitness</li>
-<li>Startup Digital</li>
-<li>Teknologi Masa Depan</li>
-</ul>
-</div>
-
-</div>
 
 </div>
 
 </section>
 
+<div class="grid">
+
+<div class="card">
+<h3>Tentang Saya</h3>
+<p>
+Berorientasi pada inovasi, selalu belajar teknologi baru,
+serta menyukai desain minimalis dengan nuansa cyberpunk.
+</p>
+</div>
+
+<div class="card">
+<h3>Keahlian</h3>
+
+<div class="skill">
+HTML
+<div class="bar">
+<div class="fill" style="width:95%"></div>
+</div>
+</div>
+
+<div class="skill">
+CSS
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill">
+JavaScript
+<div class="bar">
+<div class="fill" style="width:85%"></div>
+</div>
+</div>
+
+</div>
+
+<div class="card">
+<h3>Kontak</h3>
+
+<p>📧 email@example.com</p>
+<br>
+<p>📱 +62 812-3456-7890</p>
+<br>
+<p>🌐 www.websiteanda.com</p>
+
+</div>
+
+</div>
+
 <footer>
-© 2026 Alam Kurnia • Futuristic Digital Profile
+© 2026 • Futuristic Profile • Designed with HTML & CSS
 </footer>
 
 </div>
